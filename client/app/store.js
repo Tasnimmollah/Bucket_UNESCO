@@ -1,13 +1,17 @@
-import { configureStore } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
+import { configureStore } from "@reduxjs/toolkit";
+import logger from "redux-logger";
 //import authReducer from '../features/auth/authSlice';
 
-import allSitesSliceReducer from '../features/allSites/allSitesSlice';
+import allSitesSliceReducer from "../features/allSites/allSitesSlice";
+import singleSiteSliceReducer from "../features/singleSite/singleSiteSlice";
+import toursSliceReducer from "../features/viewTours/toursSlice";
 
 const store = configureStore({
   reducer: {
     // auth: authReducer,
-    allSites: allSitesSliceReducer
+    allSites: allSitesSliceReducer,
+    singleSite: singleSiteSliceReducer,
+    tours: toursSliceReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

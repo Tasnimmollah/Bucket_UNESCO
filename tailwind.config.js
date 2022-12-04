@@ -9,9 +9,12 @@ module.exports = {
       xl: "1280px",
       "2xl": "1536px",
     },
-    textColor:{
-      word: "#244535"
-    }
+    textColor: {
+      word: "#244535",
+      white: "#ffffff",
+      black: "#000000",
+      gray: "#222222",
+    },
   },
   plugins: [],
 };

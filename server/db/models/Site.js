@@ -40,6 +40,9 @@ const Site = db.define("site", {
   continent: {
     type: Sequelize.STRING,
   },
+  destination: {
+    type: Sequelize.STRING,
+  }
 });
 
 module.exports = Site;

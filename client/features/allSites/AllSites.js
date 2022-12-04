@@ -6,20 +6,18 @@ import { Link } from "react-router-dom";
 //import { useLocation } from "react-router-dom";
 // import ReactPaginate from "react-paginate";
 
-
 const AllSites = () => {
+  //let [siteList, setSiteList] = useState([]);
 
-//let [siteList, setSiteList] = useState([]);
+  const dispatch = useDispatch();
 
-const dispatch = useDispatch();
-
-useEffect(() => {
-  dispatch(fetchAllSites());
-}, []);
-const allSites = useSelector((state) => state.allSites.sites);
+  useEffect(() => {
+    dispatch(fetchAllSites());
+  }, []);
+  const allSites = useSelector((state) => state.allSites.sites);
 
   return (
-    <div>
+    <div className="pt-40">
       <section>
         <div>
           <section>
@@ -62,7 +60,7 @@ const allSites = useSelector((state) => state.allSites.sites);
                         <div>
                           <div>
                             <Link
-                              to={`/site/${site.id}`}
+                              to={`/sites/${site.id}`}
                               state={{ siteId: site.id }}
                               style={{ textDecoration: `none` }}
                             >
@@ -81,18 +79,6 @@ const allSites = useSelector((state) => state.allSites.sites);
                             <div
                               style={{ fontSize: `100%`, marginTop: `-15px` }}
                             >
-                              <button
-                                className="btn btn-dark"
-                                // onClick={(ev) => addToCart(ev, product.id)}
-                                style={{
-                                  marginTop: `-10px`,
-                                  fontFamily: "merel-black",
-                                  color: "black",
-                                  backgroundColor: "#F6BD60",
-                                }}
-                              >
-                                View Details
-                              </button>
                             </div>
                           </div>
                         </div>

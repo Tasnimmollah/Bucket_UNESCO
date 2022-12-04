@@ -13,7 +13,7 @@ const Home = (props) => {
   return (
     <div>
       <Hero />
-<Featured/>
+      <Featured />
     </div>
   );
 };

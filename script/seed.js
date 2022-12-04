@@ -16,12 +16,13 @@ async function seed() {
   //------------Creating users------------------------
   const users = await Promise.all([
     User.create({ username: "cody", password: "123" }),
-    User.create({ username: "murphy", password: "123" }),
+    User.create({ username: "tasnim", password: "123" }),
   ]);
 
   //------------Creating sites------------------------
   const sites = await Promise.all([
     Site.create({
+      destination: "75",
       imgUrl:
         "https://adventures.com/media/4793/canadian-rockies-mountains-nature-forest-lake-peaks-landscape-1.jpg?anchor=center&mode=crop&width=970&height=645&rnd=132622769740000000&quality=80&format=jpg",
       latitude: 51.42472222,
@@ -35,6 +36,7 @@ async function seed() {
       longitude: -116.4797222,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.newfoundlandlabrador.com/-/media/marquees/top-destinations/red-bay/red-bay/red-bay-main-header.jpg?mh=960&mw=1280&hash=A907CAA3A04E82E39F1DFC2D6D44BBE61DC5E99A",
       latitude: 51.726925,
@@ -48,6 +50,7 @@ async function seed() {
       longitude: -56.4295222222,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.palaeocast.com/wp-content/uploads/2018/09/LRN7759-7805-Joggins-Lower-Cove-WEB-Size-620x350.jpg",
       latitude: 45.7097222222,
@@ -61,6 +64,7 @@ async function seed() {
       longitude: -64.4358333333,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://acadie.cheminsdelafrancophonie.org/wp-content/uploads/grand-pre-1.jpg",
       latitude: 45.1183333333,
@@ -80,6 +84,7 @@ async function seed() {
       longitude: -64.3072222222,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.mustdocanada.com/wp-content/uploads/2018/07/HSIBJ4-1024x682.jpg",
       latitude: 49.74944444,
@@ -93,6 +98,7 @@ async function seed() {
       longitude: -113.6238889,
     }),
     Site.create({
+      destination: "75",
       imgUrl: "https://catalogue.novascotia.com/ManagedMedia/28259.jpg",
       latitude: 44.37611111,
 
@@ -105,6 +111,7 @@ async function seed() {
       longitude: -64.30916667,
     }),
     Site.create({
+      destination: "75",
       imgUrl: "https://img.peapix.com/15092557937729546811_1080.jpg",
       latitude: 50.76777778,
 
@@ -117,6 +124,7 @@ async function seed() {
       longitude: -111.4922222,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://cpawsnab.org/wp-content/uploads/%C2%A9Garth-Lenz-8300.jpg",
       latitude: 59.35833333,
@@ -130,6 +138,7 @@ async function seed() {
       longitude: -112.2933333,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Ch%C3%A2teau_Frontenac%2C_Quebec_city%2C_Canada.jpg/1200px-Ch%C3%A2teau_Frontenac%2C_Quebec_city%2C_Canada.jpg",
       latitude: 46.80944444,
@@ -143,6 +152,7 @@ async function seed() {
       longitude: -71.21055556,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://travelingbc.com/wp-content/uploads/SGang-Gwaay-mortuary-poles-by-Dale-Simonson.jpg",
       latitude: 52.095,
@@ -156,6 +166,7 @@ async function seed() {
       longitude: -131.2202778,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://i.natgeofe.com/n/c9a32790-5972-4b52-9398-659d3ae4c4c5/71328.jpg",
       latitude: 51.46666667,
@@ -169,6 +180,7 @@ async function seed() {
       longitude: -55.61666667,
     }),
     Site.create({
+      destination: "75",
       imgUrl: "https://i.ytimg.com/vi/LxFSkBK8Vf4/maxresdefault.jpg",
       latitude: 46.635,
 
@@ -181,6 +193,7 @@ async function seed() {
       longitude: -53.2111111111,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://media.istockphoto.com/id/1212275972/photo/parliament-hill-in-ottawa-ontario-canada.jpg?s=170667a&w=0&k=20&c=fAEP8PkqK2jYYeOqfVkfoi3gw8_Wrm8WlTcq11OznV4=",
       latitude: 44.9943861111,
@@ -194,6 +207,7 @@ async function seed() {
       longitude: -75.765125,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.bonjourquebec.com/en/listing/images/crop-1200x1200/502145c7-4e7f-42a4-aadc-05b05451341d/parc-national-de-miguasha-parc-national.jpg",
       latitude: 48.105,
@@ -207,6 +221,7 @@ async function seed() {
       longitude: -66.35305556,
     }),
     Site.create({
+      destination: "75",
       imgUrl: "https://i.stack.imgur.com/aWa5i.jpg",
       latitude: 49.6125,
 
@@ -219,6 +234,7 @@ async function seed() {
       longitude: -57.53138889,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://i.natgeofe.com/n/9c30ca60-d20c-4a15-9464-35cd2a327bc9/36945_square.jpg",
       latitude: 61.54722222,
@@ -232,6 +248,7 @@ async function seed() {
       longitude: -125.5894444,
     }),
     Site.create({
+      destination: "5420",
       imgUrl:
         "https://uploads.alaska.org/advice/g/glaciers/_1200x630_crop_center-center_82_none/Glaciers-tidewater-glacier-jpg-DSC_9100.jpg?mtime=20201204094651&focal=none&tmtime=20210610192533",
       latitude: 61.19758333,
@@ -244,6 +261,7 @@ async function seed() {
       longitude: -140.9919722,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/c5/69/e7/waterton-lake-prince.jpg?w=1200&h=-1&s=1",
       latitude: 48.99605556,
@@ -257,6 +275,7 @@ async function seed() {
       longitude: -113.9041667,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.orangesmile.com/extreme/img/w600/popocatepetl-monasteries_1.jpg",
       latitude: 18.93472,
@@ -270,6 +289,7 @@ async function seed() {
       longitude: -98.89778,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://elsemanario.com/wp-content/uploads/2020/10/baja-jpg-Reserva-el-Pinacate-769-Editpp-min.png",
       latitude: 32,
@@ -282,6 +302,7 @@ async function seed() {
       longitude: -113.916666667,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://mediaim.expedia.com/localexpert/879527/6ffed345-017a-42d8-8a5a-bd883f418eae.jpg",
       latitude: 18.60833333,
@@ -295,6 +316,7 @@ async function seed() {
       longitude: -95.65833333,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://centrourbano.com/revista/wp-content/uploads/foto-13-635x635.jpg",
       latitude: 17.48333,
@@ -308,6 +330,7 @@ async function seed() {
       longitude: -92.05,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.patrimoniomundial.com.mx/wp-content/uploads/2013/11/Vista_Zacatecas.jpg",
       latitude: 22.76667,
@@ -321,6 +344,7 @@ async function seed() {
       longitude: -102.55556,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6f/10/c3.jpg",
       latitude: 19.38333,
@@ -334,6 +358,7 @@ async function seed() {
       longitude: -87.79167,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://ilamdir.org/blobs/ilamdir/w1280h720/328/2019/51/foto_home_2.jpg",
       latitude: 22.6080555556,
@@ -347,6 +372,7 @@ async function seed() {
       longitude: -102.379166667,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://static01.nyt.com/images/2020/04/26/sunday-review/00Exposures-Butterflies-slide-A2ZO/00Exposures-Butterflies-slide-A2ZO-superJumbo.jpg",
       latitude: 19.6063888889,
@@ -360,6 +386,7 @@ async function seed() {
       longitude: -100.241666667,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://azertag.az/files/2022/2/1200x630/16558247281081059178_1200x630.jpeg",
       latitude: 18.7880555556,
@@ -373,6 +400,7 @@ async function seed() {
       longitude: -110.975277778,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://windows10spotlight.com/wp-content/uploads/2021/07/e192061d6ab0715f0bd4d993487ab6c5.jpg",
       latitude: 20.36166667,
@@ -386,6 +414,7 @@ async function seed() {
       longitude: -89.77027778,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/40/67/ef/20190419-135334-largejpg.jpg?w=1200&h=-1&s=1",
       latitude: 30.37583,
@@ -399,6 +428,7 @@ async function seed() {
       longitude: -107.95556,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.history.com/.image/c_fit%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_620/MTU3ODc5MDg2MTYwNjE5MjMx/houses-in-guanajuato.jpg",
       latitude: 21.01694,
@@ -412,6 +442,7 @@ async function seed() {
       longitude: -101.25556,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://mexicotravelchannel.com.mx/wp-content/uploads/2022/05/Calakmul-zona-arqueologica-mtch.jpg",
       latitude: 18.0530277778,
@@ -425,6 +456,7 @@ async function seed() {
       longitude: -89.7372833333,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://whc.unesco.org/uploads/thumbs/site_0412_0001-750-750-20091001123325.jpg",
       latitude: 19.41833,
@@ -438,6 +470,7 @@ async function seed() {
       longitude: -99.13278,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://travelmexicosolo.com/wp-content/uploads/2020/10/MeridaToCampeche-DayTrip.jpg",
       latitude: 19.84639,
@@ -450,6 +483,7 @@ async function seed() {
       longitude: -90.53722,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://i0.wp.com/www.megankopp.com/wp-content/uploads/2015/01/IMG_3442.jpg",
       latitude: 27.65556,
@@ -463,6 +497,7 @@ async function seed() {
       longitude: -112.91611,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.sightunseen.com/wordpress/wp-content/uploads/2018/03/EricPetschek-CDMX-CasaGilardi-16.jpg",
       latitude: 19.41833333,
@@ -475,6 +510,7 @@ async function seed() {
       longitude: -99.19833333,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://media.istockphoto.com/id/1327692734/photo/jalpan-sierra-gorda-queretaro.jpg?s=612x612&w=0&k=20&c=nsDYH78g82tKkvh9ruumbu5p4oZ1dwiEAc4Gn5nqHcg=",
       latitude: 21.20438889,
@@ -488,6 +524,7 @@ async function seed() {
       longitude: -99.46411111,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "http://fundacionunam.org.mx/wp-content/uploads/2013/02/biblioteca_central_UNAM.jpg",
       latitude: 19.3322222222,
@@ -501,6 +538,7 @@ async function seed() {
       longitude: -99.1880555555,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/71/b5/0a.jpg",
       latitude: 20.47639,
@@ -514,6 +552,7 @@ async function seed() {
       longitude: -97.3775,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://i0.wp.com/mexicodailypost.com/wp-content/uploads/2021/03/capilla-sixtina-atotonilco.jpg?fit=1200%2C800&ssl=1",
       latitude: 20.9144444444,
@@ -527,6 +566,7 @@ async function seed() {
       longitude: -100.746388889,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/df/b8/6e.jpg",
       latitude: 20.67388889,
@@ -539,6 +579,7 @@ async function seed() {
       longitude: -103.3397222,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://whc.unesco.org/uploads/thumbs/site_1463_0016-360-360-20150610142320.jpg",
       latitude: 19.835277777800002,
@@ -552,6 +593,7 @@ async function seed() {
       longitude: -98.6625666667,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://lacgeo.com/sites/default/files/teotihuacan_mexico_opt%20%281%29.jpg",
       latitude: 19.69167,
@@ -564,6 +606,7 @@ async function seed() {
       longitude: -98.84167,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.ovpm.org/wp-content/uploads/2019/05/museo-de-arte3-header.jpg",
       latitude: 20.58333333,
@@ -577,6 +620,7 @@ async function seed() {
       longitude: -100.3666667,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://upload.wikimedia.org/wikipedia/commons/2/20/Mexico_xochicalco_pyramids.JPG",
       latitude: 18.81028,
@@ -589,6 +633,7 @@ async function seed() {
       longitude: -99.275,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.zonaturistica.com/files/puntos_interes/1285/FP11285.jpg",
       latitude: 27.79222,
@@ -602,6 +647,7 @@ async function seed() {
       longitude: -114.22778,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/228000/228664-Zocalo-Square.jpg",
       latitude: 19.04722,
@@ -615,6 +661,7 @@ async function seed() {
       longitude: -98.20833,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://upload.wikimedia.org/wikipedia/commons/8/8a/Campo_y_cerro.jpg",
       latitude: 20.8630555555,
@@ -628,6 +675,7 @@ async function seed() {
       longitude: -103.778611111,
     }),
     Site.create({
+      destination: "50526",
       imgUrl:
         "https://destinoriviera.com/wp-content/uploads/2020/04/marv-watson-UfK0P6WygEE-unsplash-scaled.jpg",
       latitude: 20.66667,
@@ -640,6 +688,7 @@ async function seed() {
       longitude: -88.6,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://ocean.si.edu/sites/default/files/styles/photo_full/public/ProtectedAreasGulfofCalifornia.jpg.webp?itok=zmz7lUU_",
       latitude: 27.62667,
@@ -652,6 +701,7 @@ async function seed() {
       longitude: -112.54583,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://as2.ftcdn.net/v2/jpg/02/41/46/33/1000_F_241463389_RHQoEP2wGCXqZuMz0DxeeKyxjZ4dJ7va.jpg",
       latitude: 17.06194,
@@ -665,6 +715,7 @@ async function seed() {
       longitude: -96.72167,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://mexicotravelnews.com/wp/wp-content/uploads/2019/10/Centro-Historico-Morelia.jpg",
       latitude: 19.70444,
@@ -676,6 +727,7 @@ async function seed() {
       longitude: -101.19167,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://cdn.loquis.com/prod/loquis/pictures/56a7cfef-e79e-4482-9325-e211d54d83bd.jpg",
       latitude: 16.9508333333,
@@ -688,6 +740,7 @@ async function seed() {
       longitude: -96.4211111111,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.telegraph.co.uk/content/dam/travel/2021/09/28/TELEMMGLPICT000272822890_trans_NvBQzQNjv4BqgsaO8O78rhmZrDxTlQBjdLdu0TL-Cg_AMOUqySXmFgU.jpeg",
       latitude: 40.68944444,
@@ -701,6 +754,7 @@ async function seed() {
       longitude: -74.04472222,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://npf-prod.imgix.net/uploads/shutterstock_142293898_2022-06-13-204008_rwpo.jpg?auto=compress%2Cformat&fit=max&q=80&w=1600",
       latitude: 39.94861111,
@@ -714,6 +768,7 @@ async function seed() {
       longitude: -75.15,
     }),
     Site.create({
+      destination: "75",
       imgUrl: "https://live.staticflickr.com/5210/5339103010_a65036e6ff_c.jpg",
       latitude: 47.74833333,
 
@@ -726,6 +781,7 @@ async function seed() {
       longitude: -123.4488889,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://historyfangirl.com/wp-content/uploads/2020/06/shutterstock_132426206.jpg",
       latitude: 32.16666667,
@@ -739,6 +795,7 @@ async function seed() {
       longitude: -104.3833333,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://i.natgeofe.com/n/942d3a33-7239-4410-b6d6-0dca6348476e/san-juan-travel.jpg",
       latitude: 18.46666667,
@@ -752,6 +809,7 @@ async function seed() {
       longitude: -66.125,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.explorebigsky.com/wp-content/uploads/2021/09/Pueblo-Bonito-photo-credit-Paul-Vanderveen-2018-scaled.jpg",
       latitude: 36.06377778,
@@ -765,6 +823,7 @@ async function seed() {
       longitude: -107.9708333,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.worldhistory.org/img/r/p/500x600/13925.jpg?v=1619687335",
       latitude: 32.6369444444,
@@ -778,6 +837,7 @@ async function seed() {
       longitude: -91.4063888889,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://s27363.pcdn.co/wp-content/uploads/2021/08/Hawaii-Volcanoes-Photo.jpg.optimal.jpg",
       latitude: 19.40083333,
@@ -791,6 +851,7 @@ async function seed() {
       longitude: -155.1236111,
     }),
     Site.create({
+      destination: "815",
       imgUrl:
         "https://media.cntraveler.com/photos/5ebeef63f52f4c0911cac483/master/pass/GrandCanyonNationalPark-2020-GettyImages-858637934.jpg",
       latitude: 36.10083333,
@@ -804,6 +865,7 @@ async function seed() {
       longitude: -112.0905556,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://img0.oastatic.com/img2/73855996/1080x610r/view-of-yosemite-falls-on-a-hike-in-yosemite.jpg",
       latitude: 37.74611111,
@@ -817,6 +879,7 @@ async function seed() {
       longitude: -119.5966667,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://static.seeker.io/media/img/1/65af4e4b-43e1-40ac-96a4-5977bb7fcac4-1400.jpg?placeid=2761&name=Redwood%20National%20and%20State%20Parks,%20&lat=41.213181&lng=-124.004623",
       latitude: 41.37388889,
@@ -830,6 +893,7 @@ async function seed() {
       longitude: -123.9980556,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/sunset-over-mission-san-jose-san-antonio-texas-catholic-mission-jason-politte.jpg",
       latitude: 29.3280555556,
@@ -843,6 +907,7 @@ async function seed() {
       longitude: -98.46,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://upload.travelawaits.com/ta/uploads/2021/04/aerial-view-of-monks-mound-at7148c8-800x800.jpg",
       latitude: 38.65861111,
@@ -856,6 +921,7 @@ async function seed() {
       longitude: -90.06138889,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://cdn.britannica.com/92/130792-050-ED0EFC61/Everglades-National-Park-Florida.jpg",
       latitude: 25.55444444,
@@ -869,6 +935,7 @@ async function seed() {
       longitude: -80.99638889,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.papahanaumokuakea.gov/new-images/slider-ghost-nets-removed.jpg",
       latitude: 25.34907,
@@ -882,6 +949,7 @@ async function seed() {
       longitude: -170.14582,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://images.ctfassets.net/t0xuqwv6k7ay/w9LvKyjZPQD9CXcUjGsgH/a44c173cabac40702cae5384b06ba8ed/mammoth_cave_national_park_hero_image.jpg",
       latitude: 37.18722222,
@@ -895,6 +963,7 @@ async function seed() {
       longitude: -86.10305556,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://www.planetware.com/photos-large/USNM/New-mexico-taos-pueblo.jpg",
       latitude: 36.43889,
@@ -908,6 +977,7 @@ async function seed() {
       longitude: -105.54167,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://photojeepers.com/wp-content/uploads/2022/06/hot-pool-at-yellowstone.jpg",
       latitude: 44.46056,
@@ -921,6 +991,7 @@ async function seed() {
       longitude: -110.82778,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_jpg,g_xy_center,h_500,q_65,w_640,x_518,y_361/v1/clients/swaincountync/Oconaluftee_Valley_Overlook_low_rez_for_web_or_social_8f145a91-e25c-4e1d-ba6b-e719fb510523.jpg",
       latitude: 35.59305556,
@@ -934,6 +1005,7 @@ async function seed() {
       longitude: -83.43555556,
     }),
     Site.create({
+      destination: "75",
       imgUrl:
         "https://assets.simpleviewinc.com/simpleview/image/fetch/c_limit,h_1200,q_75,w_1200/https://assets.simpleviewinc.com/simpleview/image/upload/crm/durangoco/MesaVerde_Sellers_150-baff934a90e4def_baff94a2-f937-b9b4-d668f02f77822e5a.jpg",
       latitude: 37.26166667,
