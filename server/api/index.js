@@ -3,6 +3,7 @@ module.exports = router;
 
 router.use("/users", require("./users"));
 router.use("/sites", require("./sites"));
+router.use("./tours", require("./tours"));
 // router.use("/orders", require("./orders"));
 // router.use("/order_products", require("./order_products"));
 // router.use("/payment", require("./payment"));

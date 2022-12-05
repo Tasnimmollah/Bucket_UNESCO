@@ -1,9 +1,8 @@
 const router = require("express").Router();
 const {
-  models: { User, Site, Bucket },
+  models: { User, Site, Bucket, Tour },
 } = require("../db");
 module.exports = router;
-
 
 // GET/api/sites
 router.get("/", async (req, res, next) => {
@@ -18,7 +17,10 @@ router.get("/", async (req, res, next) => {
 // GET/api/sites/:siteId
 router.get("/:siteId", async (req, res, next) => {
   try {
-    const aSite = await Site.findByPk(req.params.siteId);
+    const aSite = await Site.findOne({
+      where: { id: +req.params.siteId },
+      include: { model: Tour },
+    });
     if (aSite) {
       res.json(aSite);
     } else {

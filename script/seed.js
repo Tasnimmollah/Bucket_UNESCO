@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { User, Site, Bucket },
+  models: { User, Site, Bucket, Tour },
 } = require("../server/db");
 
 /**
@@ -1020,7 +1020,7 @@ async function seed() {
     }),
   ]);
 
-  //------------Creating users------------------------
+  //------------Creating buckets------------------------
   const buckets = await Promise.all([
     Bucket.create({
       userId: 1,
@@ -1039,9 +1039,156 @@ async function seed() {
     }),
   ]);
 
+  const tours = await Promise.all([
+    Tour.create({
+      siteId: 1,
+      title: "Half-Day Private Grand Canyon Guided Hiking Tour",
+      description:
+        "Spend half a day exploring the Grand Canyon West Rim. Save time on the day by booking admission tickets in advance and enjoy the activities which are of most interest, such as the strolling along the Skywalk.",
+      imgUrl:
+        "https://media.tacdn.com/media/attractions-splice-spp-674x446/0a/94/5d/99.jpg",
+      reviewCount: 244,
+      reviewAvg: 4,
+      duration: "1 to 4 hours (approx.)",
+      priceFrom: 53.17,
+      bookingUrl:
+        "https://www.viator.com/tours/Grand-Canyon-National-Park/Grand-Canyon-West-Admission-Ticket/d815-76754P1",
+    }),
+    Tour.create({
+      siteId: 1,
+      title:
+        "Helicopter Tour of the North Canyon with Optional Hummer Excursion",
+      description:
+        "Soar over Kaibab National Forest and into the Dragon Corridor—the deepest and widest part of the canyon. ",
+      imgUrl:
+        "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/bb/cb/df.jpg",
+      reviewCount: 69,
+      reviewAvg: 5,
+      duration: "2 hours 30 minutes (approx.)",
+      priceFrom: 229.0,
+      bookingUrl:
+        "https://www.viator.com/tours/Grand-Canyon-National-Park/Helicopter-Tour-of-the-North-Canyon-with-Optional-Hummer-Excursion/d815-6613P14",
+    }),
+    Tour.create({
+      siteId: 1,
+      title:
+        "Arizona Highlights - Antelope Canyon and Lake Powell Flight with River Rafting",
+      description:
+        "Explore the Grand Canyon from the land, air, and water on this full-day sightseeing adventure.",
+      imgUrl:
+        "https://media.tacdn.com/media/attractions-splice-spp-674x446/07/73/cb/98.jpg",
+      reviewCount: 80,
+      reviewAvg: 4,
+      duration: "12 hours 30 minutes (approx.)",
+      priceFrom: 679.0,
+      bookingUrl:
+        "https://www.viator.com/tours/Grand-Canyon-National-Park/Arizona-Highlights-Day-Trip-Antelope-Canyon-Lake-Powell-and-Glen-Canyon-with-River-Rafting/d815-6338RIVER",
+    }),
+    Tour.create({
+      siteId: 2,
+      title: "Skip the Line: Entrance Ticket to Chichen Itza",
+      description:
+        "Save hours of waiting in line at one of the New7Wonders of the World with skip-the-line entry to Chichen Itza. Booking your admission ticket in advance allows you to arrive at the Mayan ruins at any time of day.",
+      imgUrl:
+        "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/e5/57/d2.jpg",
+      reviewCount: 60,
+      reviewAvg: 4,
+      duration: "1 to 6 hours (approx.)",
+      priceFrom: 64.0,
+      bookingUrl:
+        "https://www.viator.com/tours/Cancun/Skip-The-Line-Chichen-Itza-Entrance-Ticket/d631-5885P253",
+    }),
+    Tour.create({
+      siteId: 2,
+      title: "Tour to Chichen Itza and Coba with Cenote",
+      description:
+        "Visit two ancient Maya cities and a beautiful cenote on a full-day trip from Playa del Carmen to Chichen Itza and Coba. ",
+      imgUrl:
+        "https://media.tacdn.com/media/attractionhttps://media.tacdn.com/media/attractions-splice-spp-674x446/0f/4d/d3/c3.jpgs-splice-spp-674x446/07/35/e8/6b.jpg",
+      reviewCount: 109,
+      reviewAvg: 4,
+      duration: "12 hours (approx.)",
+      priceFrom: 70.0,
+      bookingUrl:
+        "https://www.viator.com/tours/Cancun/Chichen-Itza-Cenote-Ik-Kil-and-Coba-from-Playa-del-Carmen-and-Riviera-Maya/d631-29537P21",
+    }),
+    Tour.create({
+      siteId: 3,
+      title: "Winter Wildlife Discovery Tour",
+      description:
+        "This educational and entertaining guided winter wildlife tour introduces you to the gorgeous natural beauty outside of Jasper. You'll learn about the history and geology of the area from the expert local guide.",
+      imgUrl:
+        "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/71/42/ae.jpg",
+      reviewCount: 20,
+      reviewAvg: 4,
+      duration: "3 hours 30 minutes (approx.)",
+      priceFrom: 54.66,
+      bookingUrl:
+        "https://www.viator.com/tours/Jasper/Maligne-Valley-and-Wildlife-Tour/d5421-3872MV",
+    }),
+    Tour.create({
+      siteId: 3,
+      title: "Maligne Canyon Ice Walk",
+      description:
+        "Calling all outdoor adventurers, this hiking tour takes you deep into Maligne Canyon, one of the deepest river canyons in the Canadian Rockies. On a mostly downhill route, encounter frozen waterfalls, ice caves, and discover the mystery of the disappearing Medicine Lake",
+      imgUrl:
+        "https://media.tacdn.com/media/attractions-splice-spp-674x446/0a/9f/7a/61.jpg",
+      reviewCount: 71,
+      reviewAvg: 4,
+      duration: "3 hours (approx.)",
+      priceFrom: 56.18,
+      bookingUrl:
+        "https://www.viator.com/tours/Jasper/Maligne-Canyon-Ice-Walk/d5421-3872P25",
+    }),
+
+    Tour.create({
+      siteId: 3,
+      title: "Athabasca Canyon Run Family Rafting: Class II Plus Rapids",
+      description:
+        "Paddle through the dramatic Athabasca Canyon on a half-day whitewater rafting adventure from Jasper that takes on fun, family-friendly Class 2+ rapids. ",
+      imgUrl:
+        "https://media.tacdn.com/media/attractions-splice-spp-674x446/07/97/fd/f4.jpg",
+      reviewCount: 86,
+      reviewAvg: 5,
+      duration: "3 hours 30 minutes (approx.)",
+      priceFrom: 85.38,
+      bookingUrl:
+        "https://www.viator.com/tours/Jasper/Athabasca-Canyon-Run-Family-Rafting-Class-II-Plus-Rapids/d5421-5400P8",
+    }),
+    Tour.create({
+      siteId: 2,
+      title: "The Best of Valladolid Walking Tour",
+      description:
+        "Planning a trip around the Yucatan Peninsula? What to see in Valladolid? Are Mayans living in Valladolid? Enjoy the cultural and iconic attractions of interest in one of the famous and colorful towns in Mexico.",
+      imgUrl:
+        "https://media.tacdn.com/media/attractions-splice-spp-674x446/09/35/dd/35.jpg",
+      reviewCount: 5,
+      reviewAvg: 4,
+      duration: "2 hours (approx.)",
+      priceFrom: 105.0,
+      bookingUrl:
+        "https://www.viator.com/tours/Valladolid/The-Best-of-Valladolid-Walking-Tour/d50533-198517P4",
+    }),
+    Tour.create({
+      siteId: 3,
+      title: "Jasper Rock Climbing Experience",
+      description:
+        "On this introductory rock climbing tour, suited to all ages and skill levels, escape the city for a day of adventure—with all safety and climbing equipment included. ",
+      imgUrl:
+        "https://media.tacdn.com/media/attractions-splice-spp-674x446/06/71/3a/a0.jpg",
+      reviewCount: 32,
+      reviewAvg: 5,
+      duration: "4 hours (approx.)",
+      priceFrom: 99.64,
+      bookingUrl:
+        "https://www.viator.com/tours/Jasper/Jasper-Rock-Climbing-Experience/d5421-38238P1",
+    }),
+  ]);
+
   console.log(`seeded ${users.length} users`);
   console.log(`seeded ${sites.length} sites`);
   console.log(`seeded ${buckets.length} buckets`);
+  console.log(`seeded ${tours.length} tours`);
   console.log(`seeded successfully`);
 }
 

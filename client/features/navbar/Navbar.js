@@ -3,9 +3,34 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 //import { logout } from '../../app/store';
 import logo from "../../../public/slogo.png";
-import bucket from "../../../public/bucket.png";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 const Navbar = () => {
+  // const provider = new GoogleAuthProvider();
+  // provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+  // const auth = getAuth();
+
+  // function signInwithGoogle() {
+  //   signInWithPopup(auth, provider)
+  //     .then((result) => {
+  //       // This gives you a Google Access Token. You can use it to access the Google API.
+  //       const credential = GoogleAuthProvider.credentialFromResult(result);
+  //       const token = credential.accessToken;
+  //       // The signed-in user info.
+  //       const user = result.user;
+  //       console.log(user);
+  //     })
+  //     .catch((error) => {
+  //       // Handle Errors here.
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       // The email of the user's account used.
+  //       const email = error.customData.email;
+  //       // The AuthCredential type that was used.
+  //       const credential = GoogleAuthProvider.credentialFromError(error);
+  //     });
+  // }
+
   // const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   // const dispatch = useDispatch();
   // const navigate = useNavigate();
@@ -28,14 +53,31 @@ const Navbar = () => {
             <li>
               <button className="text-2xl text-white">Featured</button>
             </li>
+
+            {/* <li className="">
+              <button
+                onClick={signInwithGoogle}
+                className="text-2xl text-white"
+              >
+                Google Sign in
+              </button>
+            </li> */}
+
             <li className="">
-              <button className="text-2xl text-white">Log in</button>
+              <Link to="/">
+                <button className="text-2xl text-white">Log in</button>
+              </Link>
             </li>
             <li className="">
-              <button className="text-2xl text-white">Sign up</button>
+              <Link to="/">
+                <button className="text-2xl text-white">Sign up</button>
+              </Link>
             </li>
+
             <li className="">
-              <button className="text-2xl text-white">Bucket</button>
+              <Link to="/bucket">
+                <button className="text-2xl text-white">Bucket</button>
+              </Link>
             </li>
           </ul>
         </div>

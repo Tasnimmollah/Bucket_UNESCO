@@ -8,30 +8,37 @@ import { useParams, Link } from "react-router-dom";
 // } from "../cart/cartSlice";
 import { fetchSingleSite } from "./singleSiteSlice";
 import ViewTours from "../viewTours/ViewTours";
+// import { fetchAllTours } from "../viewTours/toursSlice";
+import { fetchBucket } from "../bucket/bucketSlice";
 
 const SingleSite = () => {
   const dispatch = useDispatch();
   const { siteId } = useParams();
+  const [displayTours, setDisplayTours] = useState(false);
+  useEffect(() => {
+    dispatch(fetchBucket());
+  }, []);
 
-  // const bucket = useSelector((state) => state.bucket.bucket);
+  const bucketArr = useSelector((state) => state.bucket.bucket);
 
   const capitalizeAll = (str) => {
     return str?.toUpperCase();
   };
 
-  // const addToBucket = (ev, siteId) => {
-  //   let init = false;
-  //   for (let i = 0; i < bucket.length; i++) {
-  //     if (bucket[i].siteId == siteId) {
-  //       console.log("site IDs", bucket[i].siteId, siteId);
-  //       const quantityInCart = cart[i].quantityInCart;
-  //       dispatch(incrementItemInCart({ productId, quantityInCart }));
-  //       init = true;
-  //     }
-  //   }
-  //   !init ? dispatch(addItemToBucket({ siteId })) : null;
-  //   dispatch(fetchBucket());
-  // };
+  const addToBucket = (ev, site) => {
+    // let init = false;
+    for (let i = 0; i < bucketArr.length; i++) {
+      if (bucketArr[i].id == site.id) {
+        alert("This site is already in your bucket!");
+
+        // init = true;
+      } else {
+        dispatch(incrementItemInCart({ productId, quantityInCart }));
+      }
+    }
+    // !init ? dispatch(addItemToBucket({ siteId })) : null;
+    // dispatch(fetchBucket());
+  };
 
   // () => {
   //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -42,10 +49,23 @@ const SingleSite = () => {
     dispatch(fetchSingleSite(siteId));
   }, []);
 
-  const site = useSelector((state) => state.singleSite.aSite);
-  const { name, category, country, imgUrl, description, latitude, longitude, destination } =
-    site;
+  const buttonClicked = async () => {
+    setDisplayTours((current) => !current);
+  };
 
+  const site = useSelector((state) => state.singleSite.aSite);
+  const {
+    name,
+    category,
+    country,
+    imgUrl,
+    description,
+    latitude,
+    longitude,
+    destination,
+    tours,
+  } = site;
+  console.log("COMPONENT", site);
   return (
     <div className="pt-40">
       <div>
@@ -70,6 +90,16 @@ const SingleSite = () => {
                     height: `32rem`,
                   }}
                 />
+                <div>
+                  <button
+                    className="text-black"
+                    onClick={(ev) => {
+                      addToBucket(ev, site);
+                    }}
+                  >
+                    ADD TO BUCKET
+                  </button>
+                </div>
               </div>
               <div className="">
                 <div className="">
@@ -94,7 +124,14 @@ const SingleSite = () => {
 
                   <section>
                     <div className="text-black p-16">
-                      <ViewTours name={name} siteId={siteId} destination={destination}/>
+                      <button className="text-black" onClick={buttonClicked}>
+                        {" "}
+                        Explore {name}
+                      </button>
+                      {/* <ViewTours siteId={siteId} tours={tours} /> */}
+                      {displayTours === true && tours.length ? (
+                        <ViewTours siteId={siteId} tours={tours} />
+                      ) : null}
                     </div>
                   </section>
                 </div>

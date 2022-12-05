@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../features/home/Home";
 import AllSites from "../features/allSites/AllSites";
 import SingleSite from "../features/singleSite/SingleSite";
+import Bucket from "../features/bucket/Bucket";
 //import { me } from './store';
 
 /**
@@ -26,6 +27,7 @@ const AppRoutes = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/sites" element={<AllSites />} />
         <Route path="/sites/:siteId" element={<SingleSite />} />
+        <Route path="/bucket" element={<Bucket />} />
       </Routes>
     </div>
   );
