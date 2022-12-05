@@ -12,7 +12,8 @@ import Bucket from "../features/bucket/Bucket";
  * COMPONENT
  */
 
-const AppRoutes = () => {
+const AppRoutes = (props) => {
+  const { backColor, setBackColor } = props;
   // const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   // const dispatch = useDispatch();
 
@@ -23,11 +24,20 @@ const AppRoutes = () => {
   return (
     <div>
       <Routes>
-        <Route path="/*" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/sites" element={<AllSites />} />
-        <Route path="/sites/:siteId" element={<SingleSite />} />
-        <Route path="/bucket" element={<Bucket />} />
+        <Route
+          path="/*"
+          element={<Home backColor={backColor} setBackColor={setBackColor} />}
+        />
+        <Route
+          path="/home"
+          element={<Home backColor={backColor} setBackColor={setBackColor} />}
+        />
+        <Route path="/sites" element={<AllSites backColor={backColor} setBackColor={setBackColor} />} />
+        <Route path="/sites/:siteId" element={<SingleSite backColor={backColor} setBackColor={setBackColor} />} />
+        <Route
+          path="/bucket"
+          element={<Bucket backColor={backColor} setBackColor={setBackColor} />}
+        />
       </Routes>
     </div>
   );

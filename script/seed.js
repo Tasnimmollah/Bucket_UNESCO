@@ -1102,9 +1102,9 @@ async function seed() {
       siteId: 2,
       title: "Tour to Chichen Itza and Coba with Cenote",
       description:
-        "Visit two ancient Maya cities and a beautiful cenote on a full-day trip from Playa del Carmen to Chichen Itza and Coba. ",
+        "Visit two ancient Maya cities and a beautiful cenote on a full-day trip from Playa del Carmen to Chichen Itza and Coba.",
       imgUrl:
-        "https://media.tacdn.com/media/attractionhttps://media.tacdn.com/media/attractions-splice-spp-674x446/0f/4d/d3/c3.jpgs-splice-spp-674x446/07/35/e8/6b.jpg",
+        "https://i.natgeofe.com/n/bc4a1a44-9397-4f89-a3e2-662bd2603af2/28011_square.jpg",
       reviewCount: 109,
       reviewAvg: 4,
       duration: "12 hours (approx.)",

@@ -19,29 +19,28 @@ const ViewTours = (props) => {
   // const allTours = useSelector((state) => state.allTours.tours);
   console.log("VIEWTOURS COMP", tours);
   return (
-    <div className="text-4xl">
+    <div className="px-20 text-4xl">
       <div>
         ALL TOURS POSTED BELOW
         {tours && tours.length ? (
           tours.map((tour) => (
             <div className="text-black" key={tour.id}>
               <a target="_blank" rel="noreferrer" href={tour.bookingUrl}>
-                <button  className="text-black"> Book Now </button>
+                <button className="text-black"> Book Now </button>
               </a>
-                <div>{tour.title}</div>
-                <div>{tour.description}</div>
-                <div>{tour.reviewCount} Reviews</div>
-                <div>{tour.reviewAvg} Stars</div>
-                <div>{tour.duration}</div>
-                <div>From ${tour.priceFrom}</div>
-                <img
-                  className=""
-                  src={tour.imgUrl}
-                  style={{
-                    height: `32rem`,
-                  }}
-                />
-
+              <div>{tour.title}</div>
+              <div>{tour.description}</div>
+              <div>{tour.reviewCount} Reviews</div>
+              <div>{tour.reviewAvg} Stars</div>
+              <div>{tour.duration}</div>
+              <div>From ${tour.priceFrom}</div>
+              <img
+                className=""
+                src={tour.imgUrl}
+                style={{
+                  height: `32rem`,
+                }}
+              />
             </div>
           ))
         ) : (

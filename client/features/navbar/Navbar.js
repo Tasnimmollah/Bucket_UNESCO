@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 //import { logout } from '../../app/store';
 import logo from "../../../public/slogo.png";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { Link as LinkScroll } from "react-scroll";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const { backColor, setBackColor } = props;
   // const provider = new GoogleAuthProvider();
   // provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
   // const auth = getAuth();
@@ -41,17 +43,30 @@ const Navbar = () => {
 
   return (
     // FIX NAVBAR BY ADDING fixed
-    <div className="w-screen h-[100px] z-10  fixed">
-      <div className="px-20  w-full h-full items-end">
+    <div
+      className={`w-screen h-[140px] z-10 ${
+        window.location.href === "/" ? `` : `fixed`
+      } px-20 ${backColor === true ? `bg-black` : `bg-transparent`}`}
+    >
+      <div className="  w-full h-full ">
         <div className="flex justify-between items-end">
-          <div className="flex items-end drop-shadow-sm pb-2">
+          <div className="flex items-center pb-2 border rounded-xl bg-gray-200 px-4 ">
             <Link to="/">
-              <img className="w-70  h-[50px]" src={logo} />
+              <img className="w-70 h-[50px]" src={logo} />
             </Link>
           </div>
           <ul className="hidden md:flex drop-shadow-lg items-end pt-12">
             <li>
-              <button className="text-2xl text-white">Featured</button>
+              <LinkScroll
+                to="featured"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                {" "}
+                <button className="text-2xl text-white">Featured</button>
+              </LinkScroll>
             </li>
 
             {/* <li className="">

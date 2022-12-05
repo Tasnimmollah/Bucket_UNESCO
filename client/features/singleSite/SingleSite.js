@@ -11,7 +11,15 @@ import ViewTours from "../viewTours/ViewTours";
 // import { fetchAllTours } from "../viewTours/toursSlice";
 import { fetchBucket } from "../bucket/bucketSlice";
 
-const SingleSite = () => {
+const SingleSite = (props) => {
+  const { backColor, setBackColor } = props;
+
+  useEffect(() => {
+    const changeNav = () => {
+      setBackColor(true);
+    };
+    changeNav();
+  }, []);
   const dispatch = useDispatch();
   const { siteId } = useParams();
   const [displayTours, setDisplayTours] = useState(false);
@@ -46,6 +54,7 @@ const SingleSite = () => {
   // },
   //   [dispatch, quantityInCart];
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     dispatch(fetchSingleSite(siteId));
   }, []);
 
@@ -67,7 +76,7 @@ const SingleSite = () => {
   } = site;
   console.log("COMPONENT", site);
   return (
-    <div className="pt-40">
+    <div className="px-20 pt-40">
       <div>
         <div>
           <section>

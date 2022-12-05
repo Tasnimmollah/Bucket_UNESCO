@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../../public/style.css";
 // import video from "../../public/lakeVid.mp4"
 
-const Hero = () => {
+const Hero = (props) => {
+  const { backColor, setBackColor } = props;
+
+  useEffect(() => {
+    const changeNav = () => {
+      setBackColor(false);
+    };
+    changeNav();
+  }, []);
+
   return (
     <div className="w-full h-screen relative">
       <video
