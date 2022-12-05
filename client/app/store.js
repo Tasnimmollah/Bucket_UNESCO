@@ -11,7 +11,7 @@ const store = configureStore({
     // auth: authReducer,
     allSites: allSitesSliceReducer,
     singleSite: singleSiteSliceReducer,
-    tours: toursSliceReducer,
+    allTours: toursSliceReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

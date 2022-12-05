@@ -94,7 +94,7 @@ const SingleSite = () => {
 
                   <section>
                     <div className="text-black p-16">
-                      <ViewTours siteId={siteId} destination={destination}/>
+                      <ViewTours name={name} siteId={siteId} destination={destination}/>
                     </div>
                   </section>
                 </div>

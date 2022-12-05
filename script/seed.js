@@ -256,7 +256,7 @@ async function seed() {
       continent: `Europe and North America`,
       description: `These parks comprise an impressive complex of glaciers and high peaks on both sides of the border between Canada (Yukon Territory and British Columbia) and the United States (Alaska). The spectacular natural landscapes are home to many grizzly bears, caribou and Dall's sheep. The site contains the largest non-polar icefield in the world.`,
 
-      name: `Glacier Bay/Tatshenshini-Alsek`,
+      name: `Glacier Bay (Tatshenshini-Alsek)`,
       category: `Natural`,
       longitude: -140.9919722,
     }),
@@ -683,7 +683,7 @@ async function seed() {
       country: `Mexico`,
       continent: `Latin America and the Caribbean`,
       description: `This sacred site was one of the greatest Mayan centres of the Yucatán peninsula. Throughout its nearly 1,000-year history, different peoples have left their mark on the city. The Maya and Toltec vision of the world and the universe is revealed in their stone monuments and artistic works. The fusion of Mayan construction techniques with new elements from central Mexico make Chichen-Itza one of the most important examples of the Mayan-Toltec civilization in Yucatán. Several buildings have survived, such as the Warriors' Temple, El Castillo and the circular observatory known as El Caracol.`,
-      name: `Pre-Hispanic City of Chichen-Itza`,
+      name: `Chichen-Itza Pre-Hispanic City`,
       category: `Cultural`,
       longitude: -88.6,
     }),
