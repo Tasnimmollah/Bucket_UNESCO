@@ -23,7 +23,7 @@ const Hero = (props) => {
       />
       <div className="absolute w-full h-full top-0 left-0 bg-gray-900/50"></div>
       <div className="absolute top-0 w-full h-full flex flex-col justify-center text-center text-white p-4">
-        <h1 className="text-6xl font-bold text-white drop-shadow-lg">
+        <h1 className="px-40 text-8xl font-bold text-white drop-shadow-lg">
           Visit North America's Heritage Sites
         </h1>
       </div>

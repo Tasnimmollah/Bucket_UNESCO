@@ -26,172 +26,124 @@ const AllSites = (props) => {
   }, []);
   const allSites = useSelector((state) => state.allSites.sites);
 
+  const [filtering, setFiltering] = useState("none");
+
+  const filterMethods = {
+    none: { method: (elem) => elem },
+    Canada: {
+      method: (elem) => elem.country === "Canada",
+    },
+    Mexico: {
+      method: (elem) => elem.country === "Mexico",
+    },
+    UnitedStates: {
+      method: (elem) => elem.country === "United States of America",
+    },
+    Natural: {
+      method: (elem) => elem.category === "Natural",
+    },
+    Cultural: {
+      method: (elem) => elem.category === "Cultural",
+    },
+    Mixed: {
+      method: (elem) => elem.category === "Mixed",
+    },
+  };
+
   return (
     <div className="px-20 pt-40">
       <section>
         <div>
           <section>
-            <h1>ALL SITES</h1>
-          </section>
-
-          <section>
             <div>
               <div>
                 <div>
-                  <div>
-                    <button>Search by: Country</button>
+                  <div className="flex flex-row justify-between items-center py-6">
+                    <h1 className="text-8xl">Sites</h1>
                     <div>
-                      <a href="#"> Canada</a>
-                      <a href="#">Mexico</a>
-                      <a href="#">United States</a>
-                    </div>
-                  </div>
-                  <div>
-                    <button>Search by: Price</button>
-                    <div>
-                      <a href="#">All</a>
-                      <a href="#">Under $25</a>
-                      <a
-                        // className="dropdown-item"
-                        href="#"
-                        // onClick={(ev) => filterPriceButton(ev)}
-                      >
-                        Over $25
-                      </a>
+                      <span className="pl-6 text-xl">
+                        Filter by country{"        "}
+                        <select
+                          className="border border-gray-500 rounded-lg text-center w-40"
+                          defaultValue={"DEFAULT"}
+                          onChange={(e) => setFiltering(e.target.value)}
+                        >
+                          <option
+                            className="text-white"
+                            value="DEFAULT"
+                            disabled
+                          >
+                            none
+                          </option>
+                          <option value="Canada">Canada</option>
+                          <option value="Mexico">Mexico</option>
+                          <option value="UnitedStates">United States</option>
+                        </select>
+                      </span>
+                      <span className="pl-6 text-xl">
+                        Filter by category{"        "}
+                        <select
+                          className="text-center border border-gray-500 rounded-lg w-40"
+                          defaultValue={"DEFAULT"}
+                          onChange={(e) => setFiltering(e.target.value)}
+                        >
+                          <option
+                            className="text-white"
+                            value="DEFAULT"
+                            disabled
+                          >
+                            none
+                          </option>
+                          <option value="Natural">Natural</option>
+                          <option value="Cultural">Cultural</option>
+                          <option value="Mixed">Mixed</option>
+                        </select>
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div>
-                {allSites
-                  ? allSites.map((site) => (
-                      <div key={site.id}>
-                        <div>
-                          <div>
+              <hr />
+              <div className=" py-4 pb-32">
+                <div className="grid grid-cols-1 gap-12 mt-8 md:mt-16 md:grid-cols-3 ">
+                  {allSites
+                    ? [...allSites]
+                        .filter(filterMethods[filtering].method)
+                        .map((site) => (
+                          <div
+                            className=" border border-gray-200 rounded-lg drop-shadow-lg"
+                            key={site.id}
+                          >
                             <Link
                               to={`/sites/${site.id}`}
                               state={{ siteId: site.id }}
-                              style={{ textDecoration: `none` }}
                             >
-                              <div>
-                                <img  src={site.imgUrl} />
+                              <div className="lg:flex flex-col justify-between overflow-hidden hover:underline">
+                                <img
+                                  className="object-cover w-full h-64 rounded-lg lg:w-full h-66"
+                                  src={site.imgUrl}
+                                />
+
+                                <div className="flex flex-col justify-between py-6 lg:mx-6">
+                                  <div className="text-xl font-semibold text-black ">
+                                    {site.name}
+                                  </div>
+                                  <span className="flex flex-row justify-between">
+                                    <span className="text-md text-black font-medium ">
+                                      {site.country}
+                                    </span>
+
+                                    <span className="text-sm text-gray">
+                                      {site.category}
+                                    </span>
+                                  </span>
+                                </div>
                               </div>
-                              <h5
-                                style={{
-                                  color: `gray`,
-                                  fontSize: `135%`,
-                                }}
-                              >
-                                {site.name}
-                              </h5>
                             </Link>
-                            <div
-                              style={{ fontSize: `100%`, marginTop: `-15px` }}
-                            ></div>
                           </div>
-                        </div>
-
-
-
-    <div class="container px-6 py-10 mx-auto">
-        <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-          
-            <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt=""/>
-
-                <div class="flex flex-col justify-between py-6 lg:mx-6">
-                    <a href="#" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
-                        How to use sticky note for problem solving
-                    </a>
-
-                    <span class="text-sm text-gray-500 dark:text-gray-300">On: 20 October 2019</span>
+                        ))
+                    : null}
                 </div>
-            </div>
-
-            <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
-
-                <div class="flex flex-col justify-between py-6 lg:mx-6">
-                    <a href="#" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
-                        How to use sticky note for problem solving
-                    </a>
-
-                    <span class="text-sm text-gray-500 dark:text-gray-300">On: 20 October 2019</span>
-                </div>
-            </div>
-
-            <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1544654803-b69140b285a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt=""/>
-
-                <div class="flex flex-col justify-between py-6 lg:mx-6">
-                    <a href="#" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
-                        Morning routine to boost your mood
-                    </a>
-
-                    <span class="text-sm text-gray-500 dark:text-gray-300">On: 25 November 2020</span>
-                </div>
-            </div>
-
-            <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1530099486328-e021101a494a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1547&q=80" alt=""/>
-
-                <div class="flex flex-col justify-between py-6 lg:mx-6">
-                    <a href="#" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
-                        All the features you want to know
-                    </a>
-
-                    <span class="text-sm text-gray-500 dark:text-gray-300">On: 30 September 2020</span>
-                </div>
-            </div>
-
-            <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80" alt=""/>
-
-                <div class="flex flex-col justify-between py-6 lg:mx-6">
-                    <a href="#" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
-                        Minimal workspace for your inspirations
-                    </a>
-
-                    <span class="text-sm text-gray-500 dark:text-gray-300">On: 13 October 2019</span>
-                </div>
-            </div>
-
-            <div class="lg:flex">
-                <img class="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
-
-                <div class="flex flex-col justify-between py-6 lg:mx-6">
-                    <a href="#" class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
-                        What do you want to know about Blockchane
-                    </a>
-
-                    <span class="text-sm text-gray-500 dark:text-gray-300">On: 20 October 2019</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                      </div>))
-                  : null}
               </div>
             </div>
           </section>

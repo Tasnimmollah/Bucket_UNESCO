@@ -13,7 +13,7 @@ module.exports = {
       word: "#244535",
       white: "#ffffff",
       black: "#000000",
-      gray: "#222222",
+      gray: "#52525b",
       light: "#15803d",
     },
     bgColor: {

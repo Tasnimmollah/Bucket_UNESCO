@@ -3,12 +3,14 @@ import React, { useEffect } from "react";
 // import { useSelector } from 'react-redux';
 import Hero from "./Hero.js";
 import Featured from "./Featured.js";
+import Login from "../navbar/Login.js";
 
 /**
  * COMPONENT
  */
 const Home = (props) => {
-  const { backColor, setBackColor } = props;
+  const { backColor, setBackColor, fixNav, setFixNav, uLog, setULog } = props;
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 
@@ -22,12 +24,24 @@ const Home = (props) => {
     // window.addEventListener("scroll", changeColor);
   }, []);
 
-  // const username = useSelector((state) => state.auth.me.username);
 
   return (
     <div>
       <Hero backColor={backColor} setBackColor={setBackColor} />
-      <Featured />
+      <Featured
+        backColor={backColor}
+        setBackColor={setBackColor}
+        fixNav={fixNav}
+        setFixNav={setFixNav}
+      />
+      <Login
+        backColor={backColor}
+        setBackColor={setBackColor}
+        fixNav={fixNav}
+        setFixNav={setFixNav}
+        uLog={uLog}
+        setULog={setULog}
+      />
     </div>
   );
 };

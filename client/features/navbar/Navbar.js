@@ -7,46 +7,13 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { Link as LinkScroll } from "react-scroll";
 
 const Navbar = (props) => {
-  const { backColor, setBackColor } = props;
-  // const provider = new GoogleAuthProvider();
-  // provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
-  // const auth = getAuth();
-
-  // function signInwithGoogle() {
-  //   signInWithPopup(auth, provider)
-  //     .then((result) => {
-  //       // This gives you a Google Access Token. You can use it to access the Google API.
-  //       const credential = GoogleAuthProvider.credentialFromResult(result);
-  //       const token = credential.accessToken;
-  //       // The signed-in user info.
-  //       const user = result.user;
-  //       console.log(user);
-  //     })
-  //     .catch((error) => {
-  //       // Handle Errors here.
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       // The email of the user's account used.
-  //       const email = error.customData.email;
-  //       // The AuthCredential type that was used.
-  //       const credential = GoogleAuthProvider.credentialFromError(error);
-  //     });
-  // }
-
-  // const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
-  // const logoutAndRedirectHome = () => {
-  //   dispatch(logout());
-  //   navigate('/login');
-  // };
+  const { backColor, setBackColor, fixNav, setFixNav, uLog, setULog } = props;
 
   return (
-    // FIX NAVBAR BY ADDING fixed
     <div
-      className={`w-screen h-[140px] z-10 ${
-        window.location.href === "/" ? `` : `fixed`
-      } px-20 ${backColor === true ? `bg-black` : `bg-transparent`}`}
+      className={`w-screen h-[140px] z-10 fixed px-20 ${
+        backColor === true ? `bg-black` : `bg-transparent`
+      }`}
     >
       <div className="  w-full h-full ">
         <div className="flex justify-between items-end">
@@ -61,7 +28,7 @@ const Navbar = (props) => {
                 to="featured"
                 spy={true}
                 smooth={true}
-                offset={50}
+                offset={1}
                 duration={500}
               >
                 {" "}
@@ -69,26 +36,44 @@ const Navbar = (props) => {
               </LinkScroll>
             </li>
 
-            {/* <li className="">
-              <button
-                onClick={signInwithGoogle}
-                className="text-2xl text-white"
-              >
-                Google Sign in
-              </button>
-            </li> */}
-
-            <li className="">
-              <Link to="/">
-                <button className="text-2xl text-white">Log in</button>
-              </Link>
-            </li>
-            <li className="">
-              <Link to="/">
-                <button className="text-2xl text-white">Sign up</button>
-              </Link>
-            </li>
-
+            {uLog == false ? (
+              <>
+                <li className="">
+                  <LinkScroll
+                    to="login"
+                    spy={true}
+                    smooth={true}
+                    offset={1}
+                    duration={500}
+                  >
+                    {" "}
+                    <button className="text-2xl text-white">Log in</button>
+                  </LinkScroll>
+                </li>
+                <li className="">
+                  <LinkScroll
+                    to="login"
+                    spy={true}
+                    smooth={true}
+                    offset={50}
+                    duration={500}
+                  >
+                    {" "}
+                    <button className="text-2xl text-white">Sign up</button>
+                  </LinkScroll>
+                </li>
+              </>
+            ) : (
+              <>
+                {" "}
+                <li className="">
+                  <button className="text-2xl text-white">Tasnim</button>
+                </li>
+                <li className="">
+                  <button className="text-2xl text-white">Log Out</button>
+                </li>
+              </>
+            )}
             <li className="">
               <Link to="/bucket">
                 <button className="text-2xl text-white">Bucket</button>
@@ -102,18 +87,3 @@ const Navbar = (props) => {
 };
 
 export default Navbar;
-
-{
-  /* <li>
-<div>
-  <button>
-    <Link to="/">
-      <img
-        className="w-50 h-[40px] hover:scale-110 "
-        src={bucket}
-      />
-    </Link>
-  </button>
-</div>
-</li> */
-}

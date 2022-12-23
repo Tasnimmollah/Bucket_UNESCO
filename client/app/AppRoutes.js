@@ -13,7 +13,7 @@ import Bucket from "../features/bucket/Bucket";
  */
 
 const AppRoutes = (props) => {
-  const { backColor, setBackColor } = props;
+  const { backColor, setBackColor, fixNav, setFixNav, uLog, setULog } = props;
   // const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   // const dispatch = useDispatch();
 
@@ -26,14 +26,42 @@ const AppRoutes = (props) => {
       <Routes>
         <Route
           path="/*"
-          element={<Home backColor={backColor} setBackColor={setBackColor} />}
+          element={
+            <Home
+              backColor={backColor}
+              setBackColor={setBackColor}
+              fixNav={fixNav}
+              setFixNav={setFixNav}
+              uLog={uLog}
+              setULog={setULog}
+            />
+          }
         />
         <Route
           path="/home"
-          element={<Home backColor={backColor} setBackColor={setBackColor} />}
+          element={
+            <Home
+              backColor={backColor}
+              setBackColor={setBackColor}
+              fixNav={fixNav}
+              setFixNav={setFixNav}
+              uLog={uLog}
+              setULog={setULog}
+            />
+          }
         />
-        <Route path="/sites" element={<AllSites backColor={backColor} setBackColor={setBackColor} />} />
-        <Route path="/sites/:siteId" element={<SingleSite backColor={backColor} setBackColor={setBackColor} />} />
+        <Route
+          path="/sites"
+          element={
+            <AllSites backColor={backColor} setBackColor={setBackColor} />
+          }
+        />
+        <Route
+          path="/sites/:siteId"
+          element={
+            <SingleSite backColor={backColor} setBackColor={setBackColor} />
+          }
+        />
         <Route
           path="/bucket"
           element={<Bucket backColor={backColor} setBackColor={setBackColor} />}

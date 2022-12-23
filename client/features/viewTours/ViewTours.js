@@ -17,30 +17,50 @@ const ViewTours = (props) => {
   // }, []);
 
   // const allTours = useSelector((state) => state.allTours.tours);
-  console.log("VIEWTOURS COMP", tours);
+
   return (
-    <div className="px-20 text-4xl">
+    <div className="px-20 pt-14 pb-32">
       <div>
-        ALL TOURS POSTED BELOW
         {tours && tours.length ? (
           tours.map((tour) => (
-            <div className="text-black" key={tour.id}>
-              <a target="_blank" rel="noreferrer" href={tour.bookingUrl}>
-                <button className="text-black"> Book Now </button>
-              </a>
-              <div>{tour.title}</div>
-              <div>{tour.description}</div>
-              <div>{tour.reviewCount} Reviews</div>
-              <div>{tour.reviewAvg} Stars</div>
-              <div>{tour.duration}</div>
-              <div>From ${tour.priceFrom}</div>
-              <img
-                className=""
-                src={tour.imgUrl}
-                style={{
-                  height: `32rem`,
-                }}
-              />
+            <div className="pb-10 max-w-3xl" key={tour.id}>
+              <div className="rounded overflow-hidden shadow-lg">
+                <img className="w-full" src={tour.imgUrl} />
+
+                <div className="px-6 py-4">
+                  <div className="mb-2 flex flex-row justify-between items-end">
+                    <span className="font-bold text-xl ">{tour.title}</span>
+                    <span>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={tour.bookingUrl}
+                      >
+                        <button className="text-lg text-white font-bold border rounded-xl bg-green-900 px-20 py-2 drop-shadow-md">
+                          Book Now
+                        </button>
+                      </a>
+                    </span>
+                  </div>
+
+                  <p className="text-gray-700 text-base">{tour.description}</p>
+                </div>
+
+                <div className="px-6 pt-4 pb-2">
+                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    {tour.reviewAvg} Stars
+                  </span>
+                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    {tour.reviewCount} Reviews
+                  </span>
+                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    {tour.duration}
+                  </span>
+                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    From ${tour.priceFrom}
+                  </span>
+                </div>
+              </div>
             </div>
           ))
         ) : (

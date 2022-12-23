@@ -2,21 +2,19 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchBucket = createAsyncThunk("fetchBucket", async () => {
-  console.log("Passing siteID fields", site);
-
   try {
-    const { data } = await axios.get(`/api/bucket`, {});
+    const { data } = await axios.get(`/api/buckets/2`);
 
     return data;
   } catch (err) {
-    console.error("ERROR IN THUNK", err);
+    console.error("ERROR IN fetchBucket THUNK", err);
   }
 });
 
 export const addToBucket = createAsyncThunk("addToBucket", async (siteId) => {
   console.log("Passing siteID fields", siteId);
   try {
-    const { data } = await axios.put(`/api/bucket/${siteId}`, {});
+    const { data } = await axios.post(`/api/buckets/${siteId}/2`);
 
     return data;
   } catch (err) {
@@ -27,7 +25,7 @@ export const addToBucket = createAsyncThunk("addToBucket", async (siteId) => {
 export const moveList = createAsyncThunk("moveList", async (siteId) => {
   console.log("Passing siteID fields", siteId);
   try {
-    const { data } = await axios.put(`/api/bucket/${siteId}`, {});
+    const { data } = await axios.put(`/api/buckets/${siteId}/2`);
 
     return data;
   } catch (err) {
@@ -53,14 +51,24 @@ const bucketSlice = createSlice({
       })
       .addCase(addToBucket.fulfilled, (state, action) => {
         console.log("EXTRA REDUCERS array length", action.payload);
-        state.bucket = action.payload;
+        if (action.payload) state.bucket.push(action.payload);
       })
       .addCase(addToBucket.rejected, (state, action) => {
         state.error = action.error;
       })
       .addCase(moveList.fulfilled, (state, action) => {
         console.log("EXTRA REDUCERS array length", action.payload);
-        state.bucket = action.payload;
+
+        state.bucket = state.bucket.map((item) => {
+          if (
+            item.userId == action.payload.userId &&
+            item.siteId == action.payload.siteId
+          ) {
+            item = action.payload;
+          }
+          console.log("")
+          return item;
+        });
       })
       .addCase(moveList.rejected, (state, action) => {
         state.error = action.error;

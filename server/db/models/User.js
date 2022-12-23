@@ -4,7 +4,7 @@ const db = require('../db')
 //const SALT_ROUNDS = 5;
 
 const User = db.define('user', {
-  username: {
+  email: {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false

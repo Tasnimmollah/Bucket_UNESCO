@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-// import {
-//   addItemToCart,
-//   incrementItemInCart,
-//   fetchCart,
-// } from "../cart/cartSlice";
 import { fetchSingleSite } from "./singleSiteSlice";
 import ViewTours from "../viewTours/ViewTours";
-// import { fetchAllTours } from "../viewTours/toursSlice";
-import { fetchBucket } from "../bucket/bucketSlice";
+import { addToBucket } from "../bucket/bucketSlice";
 
 const SingleSite = (props) => {
   const { backColor, setBackColor } = props;
@@ -23,36 +17,17 @@ const SingleSite = (props) => {
   const dispatch = useDispatch();
   const { siteId } = useParams();
   const [displayTours, setDisplayTours] = useState(false);
-  useEffect(() => {
-    dispatch(fetchBucket());
-  }, []);
-
-  const bucketArr = useSelector((state) => state.bucket.bucket);
 
   const capitalizeAll = (str) => {
     return str?.toUpperCase();
   };
 
-  const addToBucket = (ev, site) => {
-    // let init = false;
-    for (let i = 0; i < bucketArr.length; i++) {
-      if (bucketArr[i].id == site.id) {
-        alert("This site is already in your bucket!");
-
-        // init = true;
-      } else {
-        dispatch(incrementItemInCart({ productId, quantityInCart }));
-      }
-    }
-    // !init ? dispatch(addItemToBucket({ siteId })) : null;
-    // dispatch(fetchBucket());
+  const handleAdd = (ev) => {
+    ev.preventDefault();
+    console.log("HANDLE ADD SITE ID", siteId);
+    dispatch(addToBucket(siteId));
   };
 
-  // () => {
-  //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  //   dispatch(fetchSingleSite(siteId));
-  // },
-  //   [dispatch, quantityInCart];
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     dispatch(fetchSingleSite(siteId));
@@ -74,81 +49,62 @@ const SingleSite = (props) => {
     destination,
     tours,
   } = site;
-  console.log("COMPONENT", site);
-  return (
-    <div className="px-20 pt-40">
-      <div>
-        <div>
-          <section>
-            <h1
-              style={{
-                textAlign: `center`,
-                backgroundColor: `#F6BD60`,
-              }}
-            >
-              {capitalizeAll(name)}
-            </h1>
-          </section>
-          <div className="">
-            <div className="">
-              <div className="">
-                <img
-                  className=""
-                  src={imgUrl}
-                  style={{
-                    height: `32rem`,
-                  }}
-                />
-                <div>
-                  <button
-                    className="text-black"
-                    onClick={(ev) => {
-                      addToBucket(ev, site);
-                    }}
-                  >
-                    ADD TO BUCKET
-                  </button>
-                </div>
-              </div>
-              <div className="">
-                <div className="">
-                  <h4 style={{ marginTop: `10%` }}>{description}</h4>
-                  <h3
-                    style={{
-                      marginTop: `3%`,
-                      fontWeight: "bolder",
-                      alignItems: "center",
-                    }}
-                  >
-                    Category: {category}
-                  </h3>
-                  <h4
-                    style={{
-                      marginTop: `2%`,
-                      fontWeight: "bold",
-                    }}
-                  >
-                    Country: {country}
-                  </h4>
 
-                  <section>
-                    <div className="text-black p-16">
-                      <button className="text-black" onClick={buttonClicked}>
-                        {" "}
-                        Explore {name}
-                      </button>
-                      {/* <ViewTours siteId={siteId} tours={tours} /> */}
-                      {displayTours === true && tours.length ? (
-                        <ViewTours siteId={siteId} tours={tours} />
-                      ) : null}
-                    </div>
-                  </section>
-                </div>
+  return (
+    <div className="px-20 pt-48 ">
+      <h1 className="text-6xl py-8">{name}</h1>
+      <hr />
+      <div className="pb-32">
+        <div className="flex justify-between my-12">
+          <div className="flex flex-row justify-between">
+            <img className="w-1/2 rounded-lg" src={imgUrl} />
+
+            <div className="flex flex-col justify-evenly  w-full lg:w-1/2 bg-white pl-5 rounded-lg lg:rounded-l-none">
+              <div className="pl-52">
+                <button
+                  onClick={(ev) => handleAdd(ev)}
+                  className="text-2xl text-black font-bold border rounded-xl bg-white px-16 py-2 drop-shadow-md"
+                >
+                  Add To Bucket
+                </button>
+              </div>
+              <div className="pl-10 flex flex-row justify-between ">
+                <span>
+                  <div className="inline-block text-lg font-semibold ">
+                    {country}
+                  </div>
+                </span>
+                <span className="">
+                  <div className="inline-block text-lg font-semibold ">
+                    Category: {category}
+                  </div>
+                </span>
+              </div>
+
+              <div className="pl-8  text-center">
+                <p className="mb-4 text-lg text-black">{description}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <section className="flex flex-col justify-between items-center">
+        <div className="py-10 ">
+          <button
+            className="text-4xl text-black font-bold border rounded-xl bg-white px-28 py-8 drop-shadow-md"
+            onClick={buttonClicked}
+          >
+            {" "}
+            Explore {name}
+          </button>
+          <hr />
+          {/* <ViewTours siteId={siteId} tours={tours} /> */}
+        </div>
+        {displayTours === true && tours.length ? (
+          <ViewTours siteId={siteId} tours={tours} />
+        ) : null}
+      </section>
     </div>
   );
 };
