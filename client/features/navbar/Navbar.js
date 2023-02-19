@@ -36,44 +36,31 @@ const Navbar = (props) => {
               </LinkScroll>
             </li>
 
-            {uLog == false ? (
-              <>
-                <li className="">
-                  <LinkScroll
-                    to="login"
-                    spy={true}
-                    smooth={true}
-                    offset={1}
-                    duration={500}
-                  >
-                    {" "}
-                    <button className="text-2xl text-white">Log in</button>
-                  </LinkScroll>
-                </li>
-                <li className="">
-                  <LinkScroll
-                    to="login"
-                    spy={true}
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                  >
-                    {" "}
-                    <button className="text-2xl text-white">Sign up</button>
-                  </LinkScroll>
-                </li>
-              </>
-            ) : (
-              <>
+            <li className="">
+              <LinkScroll
+                to="login"
+                spy={true}
+                smooth={true}
+                offset={1}
+                duration={500}
+              >
                 {" "}
-                <li className="">
-                  <button className="text-2xl text-white">Tasnim</button>
-                </li>
-                <li className="">
-                  <button className="text-2xl text-white">Log Out</button>
-                </li>
-              </>
-            )}
+                <button className="text-2xl text-white">Log in</button>
+              </LinkScroll>
+            </li>
+            <li className="">
+              <LinkScroll
+                to="login"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                {" "}
+                <button className="text-2xl text-white">Sign up</button>
+              </LinkScroll>
+            </li>
+
             <li className="">
               <Link to="/bucket">
                 <button className="text-2xl text-white">Bucket</button>
